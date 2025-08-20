@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Penujak Punya Cerita </title>
+  <link rel="icon" href="assets/images/favicon.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+
+<body>
+   <!-- ===== audio ===== -->
+  <audio id="audioPlayer"></audio>
+  <!-- ===== NAVIGASI ===== -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="assets/images/logo1.png" alt="Logo Desa Penujak" class="logo" />
+    </div>
+
+    <!-- Tombol Menu Mobile -->
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-item">Beranda</a></li>
+      
+      <!-- Drop Menu Informasi -->
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="nav-item active">Informasi ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="#sejarah">Sejarah Desa</a></li>
+          <li><a href="#pariwisata">Wisata Desa</a></li>
+          <li><a href="#budaya">Seni Budaya</a></li>
+        </ul>
+      </li>
+
+      <!-- Drop Menu Mapping Area -->
+        <li class="dropdown">
+          <a href="sentra.html" class="nav-item">Sentra Gerabah ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="mapping.html">Mapping Area</a></li>
+          </ul>
+        </li>
+        
+      <li><a href="profil.html" class="nav-item">Profil & Data Pengerajin</a></i>
+      <li><a href="koleksi.html" class="nav-item">Koleksi</a></li>
+    </ul>
+    </div>
+  </nav>
+
+  <!-- ===== INFORMASI: SEJARAH ===== -->
+  <section class="info-card sejarah-card" id="sejarah">
+    <div class="audio-control" data-section="sejarah" onclick="playAudio('sejarah')" title="Putar Narasi">
+    <i class="fas fa-volume-up"></i></div>
+    <div class="sejarah-grid foto-kanan">
+      <div class="sejarah-content">
+        <h2>𓇢𓆸Telusuri Sejarah dan Keindahan Alam Desa Penujak𓇢𓆸</h2>
+        <p>
+        <strong>Desa Penujak</strong>  merupakan salah satu desa dari 10 (Sepuluh)
+        Desa yang ada di Kecamatan Praya Barat, dengan luas 1.750 Ha.
+        Atau 17,5 Km2, yang terdiri dari 18 (delapan belas) Dusun.
+        Menurut sejarahnya Desa Penujak telah ada sejak tahun 1816,
+        dengan cikal bakal berdirinya adalah <strong>RADEN MELES</strong> bersama
+        tokoh-tokoh masyarakat pada masa itu.
+        </p>
+        <p>
+        <strong>Desa PENUJAK</strong> sebelum bergabung dengan Kecamatan
+        Praya Barat merupakan Desa dalam wilayah distrik Jonggat, yang
+        karena pengembangan wilayah Kecamatan menjadi 2 (dua)
+        Kecamatan, maka setelah Kecamatan Praya Barat menjadi
+        Kecamatan yang difinitif pada tahun 1957 Desa PENUJAK menjadi
+        bagian wilayah Kecamatan Praya Barat.
+        </p>
+        <p>
+        Nama PENUJAK diambil dari bahasa Sasak yang berasal dari
+        kata <strong>“PANUJAA“</strong> yang berarti <strong><i>“ SUMBER ILMU “</i></strong>.
+        </p>
+        <p>
+        <strong>Sejak terbentuknya</strong>, Desa Penujak dulu wilayahnya meliputi
+        Tanak Awu, Pengembur, Tumpak, Mawun dan Bonder. Pada tahun
+        1956 karna luasnya wilayah yang sangat luas, terjadi pemekaran
+        Desa yaitu Desa Tanak Awu, kemudian pada tahun 1963
+        Pengembur, Tumpak dan Mawun berdiri sendiri sebagai sebuah
+        Desa,dan pada tahun 1966 Bonder pun mekar dan berdiri sendiri.
+        Pada awalnya Desa Penujak terdiri dari 13 (dua) dusun yaitu Dusun
+        Karang Dalam, Karang Daya, Dayen Peken, karang Puntik,
+        Montor,Belemong, Kangi, Tongkek, Adong, Toro, Tenandon, Mentokok dan Dusun Selanglet. Berdasarkan Undang-Undang
+        Nomor 22 tahun 1999 tentang Pemerintah Daerah pada tahun 2008
+        Desa PENUJAK melekasanakan pemekaran dan penambahan
+        Dusun menjadi 18 (delapan belas ) Dusun yaitu Mantung, Pedek,
+        Ketapang Karang Daye Timuk dan Mentokok 1. 
+        </p>
+      </div>
+
+      <div class="sejarah-collage">
+        <figure class="foto foto-a">
+          <img src="assets/images/sejarah1.png" alt="Panorama alam Desa Penujak" onclick="tampilkanPopup(this)" />
+          <figcaption>Proses Pembuatan Gerabah</figcaption>
+        </figure>
+        <figure class="foto foto-b">
+          <img src="assets/images/sejarah2.png" alt="Proses pembuatan gerabah oleh perajin" onclick="tampilkanPopup(this)" />
+          <figcaption>Pesona Alam Penujak</figcaption>
+        </figure>
+        <figure class="foto foto-c">
+          <img src="assets/images/sejarah3.png" alt="Motif dan detail artistik gerabah" onclick="tampilkanPopup(this)" />
+          <figcaption>Gotong Royong</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INFORMASI: PARIWISATA ===== -->
+  <section class="info-card pariwisata-card" id="pariwisata">
+    <div class="audio-control" data-section="pariwisata" onclick="playAudio('pariwisata')" title="Putar Narasi">
+    <i class="fas fa-volume-up"></i></div>
+    <div class="pariwisata-grid foto-kanan">
+      <div class="pariwisata-content">
+        <h2>🏺Desa Wisata Penujak, Sentra Gerabah Tradisional Lombok</h2>
+        <p>
+        <strong>Desa Wisata Penujak</strong>, sebuah destinasi budaya yang kaya akan warisan leluhur dan 
+        kerajinan tangan khas Lombok. Terletak di Kecamatan Praya Barat, Lombok Tengah, desa ini dikenal 
+        sebagai penghasil gerabah tertua di Pulau Lombok, dengan sejarah panjang yang terus hidup hingga kini.
+      </p>
+      <p>
+        Di sini, Anda bisa merasakan langsung pengalaman membuat gerabah bersama para pengrajin lokal yang sudah
+        mewariskan keahlian ini secara turun-temurun. Setiap dusun memiliki keunikan tersendiri dalam memproduksi 
+        gerabah, mulai dari bentuk, warna, hingga teknik pembuatannya. Anda juga bisa membeli langsung kerajinan 
+        khas seperti kendi, pot bunga, hingga souvenir unik sebagai oleh-oleh.
+      </p>
+      <p>
+        Tak hanya itu, Desa Penujak juga menyediakan <i>workshop</i> interaktif, Pasar Angkringan, dan <i>art shop</i> yang 
+        menyuguhkan kuliner lokal dan aneka kerajinan tangan. Wisatawan dapat menikmati suasana pedesaan yang 
+        asri, mencicipi kopi Lombok, serta menyaksikan langsung proses pembentukan tanah liat menjadi karya seni 
+        bernilai tinggi.
+      </p>
+      <p>
+        Berjarak hanya sekitar 2 km dari Bandara Internasional Lombok, desa ini sangat mudah dijangkau dan cocok sebagai tujuan 
+        wisata edukatif maupun rekreasi keluarga. Untuk kenyamanan pengunjung, tersedia pula penginapan lokal seperti <strong>Arkana
+        Penujak</strong> yang menyatu dengan alam dan budaya lokal.
+      </p>
+      </div>
+
+      <div class="pariwisata-collage">
+        <figure class="foto foto-d">
+          <img src="assets/images/pariwisata2.jpg" alt="Tari Tradisional" onclick="tampilkanPopup(this)" />
+          <figcaption>Kerajinan Gerabah</figcaption>
+        </figure>
+        <figure class="foto foto-e">
+          <img src="assets/images/pariwisata6.jpg" alt="Musik Sasak" onclick="tampilkanPopup(this)" />
+          <figcaption>Pasar Tradisional</figcaption>
+        </figure>
+        <figure class="foto foto-f">
+          <img src="assets/images/pariwisata7.png" alt="Bukit Belibe" onclick="tampilkanPopup(this)" />
+          <figcaption>Bukit Belibe</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INFORMASI: SENI BUDAYA ===== -->
+  <section class="info-card budaya-card" id="budaya">
+  <div class="audio-control" data-section="budaya" onclick="playAudio('budaya')" title="Putar Narasi">
+  <i class="fas fa-volume-up"></i></div>
+    <div class="budaya-grid foto-kanan">
+      <div class="budaya-content">
+        <h2>𓀥Tradisi Betimpas, Warisan Penyucian Diri Leluhur Sasak𓀥</h2>
+         <p><strong>Tradisi Betimpas</strong> adalah ritual tahunan yang dilakukan oleh masyarakat 
+          Dusun Selanglet, Desa Penujak, setiap bulan ke-7 dalam kalender adat Sasak. 
+          Tradisi ini dipercaya mampu menyucikan diri dan menolak bala, khususnya mencegah 
+          datangnya 144 jenis penyakit. Prosesi ini bukan sekadar kegiatan spiritual, 
+          melainkan bentuk perlindungan dan penguatan ikatan sosial dalam komunitas.
+        </p>
+        <p>
+          Ritual Betimpas telah dilakukan sejak zaman <strong>Raden Mas Panji Mitjeh</strong> sekitar 
+          tahun 1580, dan hingga kini masih dilestarikan oleh masyarakat sebagai bagian 
+          dari warisan budaya leluhur yang sarat makna.
+        </p>
+        <h2>♪Tari Gendang Beleq, Simbol Semangat dan Perayaan Suku Sasak ♪</h2>
+        <p>
+          <strong>Gendang Beleq</strong> merupakan pertunjukan musik dan tarian tradisional khas Suku
+          Sasak yang menggunakan alat musik besar seperti gendang beleq (gendang besar), gong, suling, dan ceng-ceng.
+        </p>
+        <p>
+          Tarian ini biasa ditampilkan dalam berbagai perayaan adat seperti kelahiran, khitanan (nyongkolan), 
+          pernikahan, hingga penyambutan tamu penting. Gendang Beleq tidak hanya sekadar pertunjukan seni, tetapi 
+          juga mengandung semangat kebersamaan, kebanggaan budaya, dan nilai spiritual dalam setiap dentuman gendangnya.
+        </p>
+        <h2>
+           𓀩Kerajinan Gerabah, Sentra Seni Tradisional Desa Penujak𓀩
+        </h2>
+        <p>
+          <strong>Desa Penujak</strong> dikenal luas sebagai salah satu sentra kerajinan gerabah tertua dan paling terkenal di Pulau Lombok.
+          Sejak zaman nenek moyang, masyarakat di desa ini telah mewarisi keterampilan membuat gerabah dari tanah liat secara 
+          turun-temurun. Keunikan utama dari kerajinan ini adalah proses pembuatannya yang masih mempertahankan cara-cara tradisional
+          tanpa bantuan teknologi modern, mencerminkan kearifan lokal yang kaya akan nilai budaya.
+        </p>
+        <p>
+          Setiap dusun di Desa Penujak memiliki spesialisasi produk gerabah yang berbeda, menciptakan beragam karya seni yang memikat:
+        </p>
+        <p>
+          - <strong>Dusun Adong</strong> : Menghasilkan gentong-gentong besar dan set kursi meja berbahan tanah liat, yang biasanya digunakan untuk dekorasi rumah atau kebutuhan tradisional.
+        </p>
+        <p>
+          - <strong>Dusun Tongkek & Kangi</strong> : Ahli dalam membuat tempat lilin dari gerabah yang unik dan artistik.
+        </p>
+        <p>
+          - <strong>Dusun Toro & Mantung</strong> : Fokus pada produksi piring gerabah yang digunakan untuk keperluan rumah tangga dan penyajian makanan tradisional.
+        </p>
+        <p>
+          - <strong>Dusun Terandon</strong> : Terkenal dengan produksi kendi (tempat air) yang masih banyak digunakan oleh masyarakat lokal.
+        </p>
+        <p>
+          - <strong>Dusun Telage</strong> : Menjadi pusat proses <i>finishing</i> untuk menyempurnakan tampilan dan kualitas semua produk kerajinan dari dusun lainnya.
+        </p>
+        <p>
+          Tidak hanya menjadi sumber ekonomi kreatif masyarakat lokal, kerajinan gerabah Desa Penujak juga menjadi daya tarik wisata budaya.
+          Para pengunjung dapat langsung menyaksikan proses pembuatan gerabah dari awal hingga akhir, bahkan ikut mencoba membuatnya sendiri. 
+          Hal ini menjadikan kerajinan gerabah bukan sekadar produk seni, tetapi juga bentuk edukasi dan pelestarian budaya yang hidup.
+        </p>
+      </div>
+
+      <div class="budaya-collage">
+        <figure class="foto foto-g">
+          <img src="assets/images/budaya1.jpeg" alt="Budaya 1" onclick="tampilkanPopup(this)" />
+          <figcaption>Tradisi Betimpas</figcaption>
+        </figure>
+        <figure class="foto foto-h">
+          <img src="assets/images/budaya2.jpg" alt="Budaya 2" onclick="tampilkanPopup(this)" />
+          <figcaption>Gendang Beleq</figcaption>
+        </figure>
+        <figure class="foto foto-i">
+          <img src="assets/images/budaya3.jpg" alt="Budaya 3" onclick="tampilkanPopup(this)" />
+          <figcaption>Ceret Maling</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MODAL POPUP GAMBAR ===== -->
+  <div id="popupGambar" class="popup-overlay" onclick="tutupPopup()">
+    <span class="close-popup">&times;</span>
+    <img class="popup-img" id="gambarPopup" />
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>&copy; 2025 Penujak Punya Cerita. Semua Hak Dilindungi.</p>
+  </footer>
+
+  <!-- ===== SCRIPT POPUP ===== -->
+  <script>
+    function tampilkanPopup(gambar) {
+      const popup = document.getElementById("popupGambar");
+      const gambarPopup = document.getElementById("gambarPopup");
+      gambarPopup.src = gambar.src;
+      popup.style.display = "block";
+    }
+
+    function tutupPopup() {
+      document.getElementById("popupGambar").style.display = "none";
+    }
+    function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    const searchForm = document.querySelector('.search-form');
+
+    navLinks.classList.toggle('show');
+
+    // Tampilkan search hanya di HP
+    if (window.innerWidth <= 768) {
+      searchForm.classList.toggle('hidden');
+    }
+  }
+    // === AUDIO NARASI ===
+  const audioFiles = {
+    sejarah: 'assets/audio/suara-sejarah.mp3',
+    pariwisata: 'assets/audio/suara-pariwisata.mp3',
+    budaya: 'assets/audio/suara-budaya.mp3'
+  };
+
+  const audioPlayer = document.getElementById('audioPlayer');
+  let currentSection = null; // untuk tahu audio yang sedang diputar
+
+  function playAudio(section) {
+    const icon = document.querySelector(`.audio-control[data-section="${section}"] i`);
+
+    // Jika klik audio yang sama & sedang play → pause
+    if (currentSection === section && !audioPlayer.paused) {
+      audioPlayer.pause();
+      icon.classList.replace('fa-volume-off', 'fa-volume-up');
+      return;
+    }
+
+    // Ganti audio jika beda atau audio sedang pause
+    currentSection = section;
+    audioPlayer.src = audioFiles[section];
+    audioPlayer.play();
+
+    // Reset semua icon jadi volume-up
+    document.querySelectorAll('.audio-control i').forEach(i => {
+      i.classList.remove('fa-volume-off');
+      i.classList.add('fa-volume-up');
+    });
+
+    // Icon tombol yang sedang diputar → jadi volume-off
+    icon.classList.replace('fa-volume-up', 'fa-volume-off');
+  }
+
+  // Saat audio berhenti otomatis
+  audioPlayer.onended = () => {
+    document.querySelectorAll('.audio-control i').forEach(i => {
+      i.classList.remove('fa-volume-off');
+      i.classList.add('fa-volume-up');
+    });
+    currentSection = null;
+  };
+  </script>
+</body>
+</html>

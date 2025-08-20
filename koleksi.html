@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Koleksi Gerabah – Penujak Punya Cerita</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+  <!-- ===== NAVIGASI ===== -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="assets/images/logo1.png" alt="Logo Desa Penujak" class="logo" />
+    </div>
+
+    <!-- Tombol Menu Mobile -->
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-item">Beranda</a></li>
+        
+        <!-- Drop Menu Informasi -->
+        <li class="dropdown">
+          <a href="informasi.html" class="nav-item">Informasi ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="informasi.html#sejarah">Sejarah Desa</a></li>
+            <li><a href="informasi.html#pariwisata">Wisata Desa</a></li>
+            <li><a href="informasi.html#budaya">Seni Budaya</a></li>
+          </ul>
+        </li>
+
+         <!-- Drop Menu Mapping Area -->
+        <li class="dropdown">
+          <a href="sentra.html" class="nav-item">Sentra Gerabah ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="mapping.html">Mapping Area</a></li>
+          </ul>
+        </li>
+        
+        <li><a href="profil.html" class="nav-item">Profil & Data Pengerajin</a></i>
+        <li><a href="koleksi.html" class="nav-item active">Koleksi</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== HERO KOLEKSI ===== -->
+  <section class="hero-panel" id="koleksi">
+    <div class="hero-content">
+      <h1>Koleksi Gerabah Penujak</h1>
+      <p>
+        Inilah beragam bentuk gerabah karya tangan-tangan terampil warga Desa Penujak – mulai dari bentuk tradisional hingga desain modern yang telah menembus pasar global.
+      </p>
+      <a href="galeri-koleksi.html" class="cta-button">Lihat Galeri Gerabah</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>&copy; 2025 Penujak Punya Cerita. Semua Hak Dilindungi.</p>
+  </footer>
+
+  <!-- ===== SCRIPT MENU ===== -->
+  <script>
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      const searchForm = document.querySelector('.search-form');
+      navLinks.classList.toggle('show');
+      if (window.innerWidth <= 768) {
+        searchForm.classList.toggle('hidden');
+      }
+    }
+  </script>
+</body>
+</html>

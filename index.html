@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Penujak Punya Cerita</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+  <!-- ===== NAVIGASI ===== -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="assets/images/logo1.png" alt="Logo Desa Penujak" class="logo" />
+    </div>
+
+    <!-- Tombol Menu Mobile -->
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-item active">Beranda</a></li>
+        
+        <!-- Drop Menu Informasi-->
+        <li class="dropdown">
+           <a href="informasi.html" class="nav-item">Informasi ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="informasi.html#sejarah">Sejarah Desa</a></li>
+            <li><a href="informasi.html#pariwisata">Wisata Desa</a></li>
+            <li><a href="informasi.html#budaya">Seni Budaya</a></li>
+          </ul>
+        </li>
+
+        <!-- Drop Menu Mapping Area -->
+        <li class="dropdown">
+        <a href="sentra.html" class="nav-item">SentraGerabah ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="mapping.html">Mapping Area</a></li>
+        </ul>
+      </li>
+        
+         <li><a href="profil.html" class="nav-item">Profil & Data Pengerajin</a></i>
+        <li><a href="koleksi.html" class="nav-item">Koleksi</a></li>
+      </ul>
+
+      <!-- Ikon Profil -->
+    <div class="profile-icon" onclick="openLogin()">
+      <img src="assets/images/avatar.png" alt="Login" style="width:32px;cursor:pointer;">
+    </div>
+    </div>
+  </nav>
+
+  <!-- Modal Login -->
+<div id="loginModal" class="login-modal">
+  <div class="login-content animate">
+    <span class="close" onclick="closeLogin()">&times;</span>
+    <h2>Masukkan akun Admin</h2>
+    <input type="email" id="email" placeholder="Email Admin">
+    <input type="password" id="password" placeholder="Sandi Admin">
+    <button onclick="login()">Masuk</button>
+  </div>
+</div>
+
+  <!-- ===== KONTEN BERANDA ===== -->
+  <div class="horizontal-scroll">
+    <section class="panel hero-panel" id="beranda">
+      <video autoplay muted loop playsinline class="video-background">
+        <source src="assets/videos/video1.mp4" type="video/mp4" />
+        Browser Anda tidak mendukung pemutar video.
+      </video>
+
+      <div class="video-overlay"></div>
+
+      <div class="hero-content">
+        <h1>Selamat Datang di Desa Wisata Penujak</h1>
+        <p>Menelusuri keindahan alam, sejarah, dan budaya dari desa penghasil gerabah yang mendunia.</p>
+        <a href="informasi.html" class="cta-button">
+          Jelajahi Sekarang <span class="arrow">→</span>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <div class="footer">
+        <p>© 2025 Desa Wisata Penujak | Lombok Tengah | NTB</p>
+    </div>
+
+  <script>
+  function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    const searchForm = document.querySelector('.search-form');
+
+    navLinks.classList.toggle('show');
+
+    // Tampilkan search hanya jika lebar layar <= 768px
+    if (window.innerWidth <= 768) {
+      searchForm.classList.toggle('hidden');
+    }
+  }
+
+  function openLogin() {
+  document.getElementById('loginModal').style.display = 'block';
+}
+
+function closeLogin() {
+  document.getElementById('loginModal').style.display = 'none';
+}
+
+function login() {
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+
+  // Password kamu bisa ganti di sini
+  const correctEmail = "admin@penujak.com";
+  const correctPassword = "123";
+
+  if (email === correctEmail && password === correctPassword) {
+    window.location.href = "admin.html";
+  } else {
+    alert("Email atau password salah!");
+  }
+}
+</script>
+</body>
+</html>

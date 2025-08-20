@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profil & Data Pengerajin - Penujak Punya Cerita</title>
+  <link rel="icon" href="assets/images/favicon.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/style1.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+<body>
+  <!-- ===== NAVIGASI ===== -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="assets/images/logo1.png" alt="Logo Desa Penujak" class="logo" />
+    </div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-item">Beranda</a></li>
+       
+         <!-- Drop Menu Informasi -->
+        <li class="dropdown">
+          <a href="informasi.html" class="nav-item">Informasi ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="informasi.html#sejarah">Sejarah Desa</a></li>
+            <li><a href="informasi.html#pariwisata">Wisata Desa</a></li>
+            <li><a href="informasi.html#budaya">Seni Budaya</a></li>
+          </ul>
+        </li>
+
+        <!-- Drop Menu Mapping Area -->
+        <li class="dropdown">
+          <a href="sentra.html" class="nav-item">Sentra Gerabah ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="mapping.html">Mapping Area</a></li>
+          </ul>
+        </li>
+
+        <li><a href="profil.html" class="nav-item active">Profil & Data Pengerajin</a></li>
+        <li><a href="koleksi.html" class="nav-item">Koleksi</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== PROFIL & DATA PENGERAJIN ===== -->
+  <section class="info-card1">
+  <div class="sejarah-grid1 foto-kanan">
+    <div class="sejarah-content1">
+      <h2>📊 Profil & Data Pengerajin Desa Penujak</h2>
+      <p>
+        Data lengkap kependudukan dan profil pengerajin gerabah di Desa Penujak. 
+        Menampilkan statistik demografi, dan potensi ekonomi 
+        kreatif berbasis kerajinan gerabah.
+      </p>
+    </div>
+  </div>
+</section>
+
+  <!-- ===== DASHBOARD ===== -->
+  <section class="dashboard-section">
+    <div class="dashboard-stats">
+      <div class="stat-card">
+        <div class="icon"><i class="fas fa-users"></i></div>
+        <h3>Total Penduduk</h3>
+        <div class="value">16.491</div>
+      </div>
+      <div class="stat-card">
+        <div class="icon"><i class="fas fa-home"></i></div>
+        <h3>Kepala Keluarga</h3>
+        <div class="value">5.672</div>
+      </div>
+      <div class="stat-card">
+        <div class="icon"><i class="fas fa-venus-mars"></i></div>
+        <h3>Pengrajin</h3>
+        <div class="value">2.552</div>
+      </div>
+      <div class="stat-card">
+        <div class="icon"><i class="fas fa-map-marked-alt"></i></div>
+        <h3>Luas Wilayah</h3>
+        <div class="value">1.570 Ha</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2><i class="fas fa-user-friends"></i> Demografi Penduduk</h2>
+      
+      <div class="flex-container">
+        <div class="chart-box">
+          <div class="chart-container">
+            <canvas id="genderChart"></canvas>
+          </div>
+        </div>
+        <div class="chart-box">
+          <div class="chart-container">
+            <canvas id="ageGroupChart"></canvas>
+          </div>
+        </div>
+      </div>
+      
+      <div class="tabs">
+        <div class="tab active" onclick="openTab(event, 'population-table')">Tabel Data</div>
+        <div class="tab" onclick="openTab(event, 'population-highlights')">Analisis</div>
+      </div>
+      
+      <div id="population-table" class="tab-content active">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Kelompok Usia</th>
+              <th>Laki-laki</th>
+              <th>Perempuan</th>
+              <th>Total</th>
+              <th>Persentase</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>0-12 bulan</td>
+              <td>86</td>
+              <td>109</td>
+              <td>195</td>
+              <td>1.2%</td>
+            </tr>
+            <tr>
+              <td>1-6 tahun</td>
+              <td>706</td>
+              <td>720</td>
+              <td>1.426</td>
+              <td>8.6%</td>
+            </tr>
+            <tr>
+              <td>7-18 tahun</td>
+              <td>2.481</td>
+              <td>2.012</td>
+              <td>4.493</td>
+              <td>27.2%</td>
+            </tr>
+            <tr>
+              <td>19-56 tahun</td>
+              <td>5.644</td>
+              <td>3.228</td>
+              <td>8.872</td>
+              <td>53.8%</td>
+            </tr>
+            <tr>
+              <td>>56 tahun</td>
+              <td>844</td>
+              <td>878</td>
+              <td>1.722</td>
+              <td>10.4%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div id="population-highlights" class="tab-content">
+        <div class="data-highlight">
+          <h3>Komposisi Penduduk</h3>
+          <p>Desa Penujak memiliki komposisi penduduk yang seimbang antara laki-laki (49.5%) dan perempuan (50.5%), dengan kepadatan penduduk 842 jiwa/km² yang termasuk sedang untuk wilayah Lombok Tengah.</p>
+        </div>
+        <div class="data-highlight">
+          <h3>Bonus Demografi</h3>
+          <p>Mayoritas penduduk berada dalam usia produktif (19-56 tahun) sebesar 53.8%, menunjukkan potensi sumber daya manusia yang kuat untuk pembangunan desa dalam 10-15 tahun ke depan.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2><i class="fas fa-hands-helping"></i> Data Pengrajin Gerabah</h2>
+      
+      <div class="flex-container">
+        <div class="chart-box">
+          <div class="chart-container">
+            <canvas id="artisanGenderChart"></canvas>
+          </div>
+        </div>
+        <div class="chart-box">
+          <div class="chart-container">
+            <canvas id="artisanIncomeChart"></canvas>
+          </div>
+        </div>
+      </div>
+      
+      <div class="data-highlight">
+        <h3>Potensi Ekonomi Kreatif</h3>
+        <p>Pengrajin perempuan mendominasi sektor kerajinan dengan 64% dari total pengrajin. Nilai produksi kerajinan mencapai Rp3,67 miliar per tahun, dengan pendapatan rata-rata Rp55 juta per rumah tangga pengrajin per tahun.</p>
+      </div>
+      
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Kategori</th>
+            <th>Laki-laki</th>
+            <th>Perempuan</th>
+            <th>Total</th>
+            <th>Keterangan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Jumlah Pengrajin</td>
+            <td>912</td>
+            <td>1.640</td>
+            <td>2.552</td>
+            <td>15.5% dari total penduduk</td>
+          </tr>
+          <tr>
+            <td>Rumah Tangga Pengrajin</td>
+            <td colspan="2">-</td>
+            <td>416</td>
+            <td>7.3% dari total KK</td>
+          </tr>
+          <tr>
+            <td>Jenis Kerajinan</td>
+            <td colspan="4">85 jenis (gerabah, anyaman, tekstil, kayu)</td>
+          </tr>
+          <tr>
+            <td>Pengrajin Gerabah</td>
+            <td>312</td>
+            <td>587</td>
+            <td>899</td>
+            <td>35.2% dari total pengrajin</td>
+          </tr>
+          <tr>
+            <td>Nilai Produksi (2024)</td>
+            <td colspan="4">Rp 3.674.200.000 (Rp55 juta/rumah tangga/tahun)</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem;">
+      <h3 style="margin: 0;"><i class="fas fa-table"></i> Daftar Kelompok Pengrajin Gerabah</h3>
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" id="searchInput" placeholder="Cari Nama Toko..." />
+      </div>
+    </div>
+      <table id="tabelPengrajin" class="data-table">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama Toko</th>
+            <th>Pemilik</th>
+            <th>Nomor HP</th>
+            <th>Dusun</th>
+            <th>Spesialisasi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>ArtShop DAMARWULAN</td>
+            <td>Baiq Supriani</td>
+            <td>0818363970</td>
+            <td>Kangi</td>
+            <td>ArtShop</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>2</td>
+            <td>YULIA POTTERY</td>
+            <td>Pak Amran</td>
+            <td>081917096668</td>
+            <td>Tenandon</td>
+            <td>ArtShop</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>3</td>
+            <td>Sabila ArtShop (Bali)</td>
+            <td>H. Zainal</td>
+            <td>087765345367</td>
+            <td>Adong</td>
+            <td>ArtShop</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>4</td>
+            <td>Gerabah Opak-opak Segi Empat</td>
+            <td>Inaq Khairi</td>
+            <td>087711347330</td>
+            <td>Adong</td>
+            <td>Pengrajin Opak-opak</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>5</td>
+            <td>toko Inaq Sunarti</td>
+            <td>Inaq Sunarti</td>
+            <td> - </td>
+            <td>Adong</td>
+            <td>Pengerajin Gerabah Bentuk Besar</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>6</td>
+            <td>toko Inaq Sitah</td>
+            <td>Inaq Sitah</td>
+            <td> - </td>
+            <td>Adong</td>
+            <td>Pengerajin Opak-opak Segi Empat</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>7</td>
+            <td>Toko Mardiana</td>
+            <td>Mardiana</td>
+            <td> - </td>
+            <td>Adong</td>
+            <td>Pengerajin Opak-opak Segi Empat</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>8</td>
+            <td>toko Sahmin</td>
+            <td>Sahmin</td>
+            <td> - </td>
+            <td>Adong</td>
+            <td>Pengerajin Opak-opak Segi Empat</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>9</td>
+            <td>toko Marianah/td>
+            <td>Marianah</td>
+            <td> - </td>
+            <td>Adong</td>
+            <td>Pengerajin Gerabah Bentuk Besar</td>
+          </tr>
+        </tbody>
+         <tbody>
+          <tr>
+            <td>10</td>
+            <td>Toko Inaq Suhaini</td>
+            <td>Inaq Suhaini</td>
+            <td> - </td>
+            <td>Adong</td>
+            <td>Pengerajin Gerabah Bentuk Besar</td>
+          </tr>
+        </tbody>
+         <tbody>
+          <tr>
+            <td>11</td>
+            <td>Toko Inaq Piana</td>
+            <td>Inaq Piana</td>
+            <td> - </td>
+            <td>Adong</td>
+            <td>Pengerajin Gerabah Bentuk Besar</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>12</td>
+            <td>Kios Gerabah</td>
+            <td>Hj. Kalsum</td>
+            <td>085955128593</td>
+            <td>Tongkek</td>
+            <td>Pengrajin Gerabah</td>
+          </tr>
+        </tbody>
+         <tbody>
+          <tr>
+            <td>13</td>
+            <td>Toko Ibu Fatimah</td>
+            <td>Ibu Fatimah</td>
+            <td>083851380711</td>
+            <td>Tongkek</td>
+            <td>Pengrajin Gerabah</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>14</td>
+            <td>Dua Sekawan Pottery Art Workshop</td>
+            <td>H. Mustakim</td>
+            <td>087859469915</td>
+            <td>Tongkek</td>
+            <td>Pengrajin Gerabah</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>15</td>
+            <td>Toko Inaq Suhaimi</td>
+            <td>Inaq Suhaimi</td>
+            <td>085974133629</td>
+            <td>Toro</td>
+            <td>Pengrajin Gerabah</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>16</td>
+            <td>Toko Hj. Rehanah</td>
+            <td>Hj. Rehanah</td>
+            <td>-</td>
+            <td>Toro</td>
+            <td>Pengrajin Gerabah</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>17</td>
+            <td>Toko Hj. Hilmah</td>
+            <td>Hj. Hilmah</td>
+            <td>-</td>
+            <td>Toro</td>
+            <td>Pengrajin Gerabah</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>18</td>
+            <td>Toko Hj. Suati</td>
+            <td>Inaq Huriati</td>
+            <td>083142903993</td>
+            <td>Toro</td>
+            <td>Pengrajin Gerabah</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>19</td>
+            <td>Pottery Craft</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Adong</td>
+            <td>Pengrajin Gerabah</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>20</td>
+            <td>Dawa Pottery</td>
+            <td>-</td>
+            <td>081907140377</td>
+            <td>Adong</td>
+            <td>Kursus Tembikar</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>21</td>
+            <td>Sasak pottery penujak</td>
+            <td>-</td>
+            <td>081907140377</td>
+            <td>Adong</td>
+            <td>Studio Seni</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>22</td>
+            <td>Surya Mandiri Handycraft</td>
+            <td>-</td>
+            <td>081917926128</td>
+            <td>Bondir</td>
+            <td>Toko Kerajinan Tangan</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>23</td>
+            <td>Lombok Aswan Adong Penujak Sasak Pottery Village</td>
+            <td>-</td>
+            <td>081805770679</td>
+            <td>Adong</td>
+            <td>Toko Kerajinan Tangan</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>24</td>
+            <td>Centrall Gerabah Penujak</td>
+            <td>-</td>
+            <td>081770027126</td>
+            <td>Kangi</td>
+            <td>Pusat Perbelanjaan</td>
+          </tr>
+        </tbody>
+         <tbody>
+          <tr>
+            <td>25</td>
+            <td>Lombok Pottery Studio</td>
+            <td>-</td>
+            <td>085738064231</td>
+            <td>Adong</td>
+            <td>Studio Seni/Kursus Gerabah</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>&copy; 2025 Penujak Punya Cerita. Semua Hak Dilindungi.</p>
+    <p>Dinas Kebudayaan dan Pariwisata Kabupaten Lombok Tengah</p>
+  </footer>
+
+  <script>
+    // Menu Toggle Function
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      const searchForm = document.querySelector('.search-form');
+      navLinks.classList.toggle('show');
+      if (window.innerWidth <= 768) {
+        searchForm.classList.toggle('hidden');
+      }
+    }
+    
+    // Tab Functionality
+    function openTab(evt, tabName) {
+      const tabContents = document.getElementsByClassName("tab-content");
+      for (let i = 0; i < tabContents.length; i++) {
+        tabContents[i].classList.remove("active");
+      }
+      
+      const tabs = document.getElementsByClassName("tab");
+      for (let i = 0; i < tabs.length; i++) {
+        tabs[i].classList.remove("active");
+      }
+      
+      document.getElementById(tabName).classList.add("active");
+      evt.currentTarget.classList.add("active");
+    }
+    
+    // Chart Configurations
+    const chartOptions = {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: {
+            padding: 20,
+            usePointStyle: true,
+            font: {
+              family: 'Poppins',
+              size: 12
+            }
+          }
+        },
+        tooltip: {
+          backgroundColor: 'rgba(0,0,0,0.8)',
+          titleFont: {
+            family: 'Poppins',
+            size: 14,
+            weight: 'bold'
+          },
+          bodyFont: {
+            family: 'Poppins',
+            size: 12
+          },
+          padding: 12,
+          cornerRadius: 5
+        }
+      }
+    };
+    
+    // Gender Distribution Chart
+    new Chart(document.getElementById('genderChart'), {
+      type: 'pie',
+      data: {
+        labels: ['Laki-laki (49.5%)', 'Perempuan (50.5%)'],
+        datasets: [{
+          data: [8167, 8324],
+          backgroundColor: ['#3498db', '#e74c3c'],
+          borderWidth: 0
+        }]
+      },
+      options: {
+        ...chartOptions,
+        plugins: {
+          ...chartOptions.plugins,
+          title: {
+            display: true,
+            text: 'Distribusi Jenis Kelamin',
+            font: {
+              family: 'Poppins',
+              size: 16,
+              weight: '600'
+            }
+          }
+        }
+      }
+    });
+    
+    // Age Group Chart
+    new Chart(document.getElementById('ageGroupChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['0-18 tahun (37.1%)', '19-56 tahun (53.8%)', '>56 tahun (10.4%)'],
+        datasets: [{
+          data: [6114, 8872, 1722],
+          backgroundColor: ['#2ecc71', '#f39c12', '#9b59b6'],
+          borderWidth: 0
+        }]
+      },
+      options: {
+        ...chartOptions,
+        plugins: {
+          ...chartOptions.plugins,
+          title: {
+            display: true,
+            text: 'Kelompok Usia Penduduk',
+            font: {
+              family: 'Poppins',
+              size: 16,
+              weight: '600'
+            }
+          }
+        },
+        cutout: '70%'
+      }
+    });
+    
+    // Education Chart
+    new Chart(document.getElementById('educationChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Tidak sekolah', 'SD', 'SMP', 'SMA', 'Diploma', 'Sarjana'],
+        datasets: [
+          {
+            label: 'Laki-laki',
+            data: [8, 1626, 1012, 1012, 224, 2135],
+            backgroundColor: '#3498db'
+          },
+          {
+            label: 'Perempuan',
+            data: [11, 1034, 1216, 899, 165, 863],
+            backgroundColor: '#e74c3c'
+          }
+        ]
+      },
+      options: {
+        ...chartOptions,
+        scales: {
+          x: {
+            grid: {
+              display: false
+            }
+          },
+          y: {
+            beginAtZero: true,
+            grid: {
+              color: '#f0f0f0'
+            }
+          }
+        },
+      }
+    });
+    
+    // Artisan Gender Chart
+    new Chart(document.getElementById('artisanGenderChart'), {
+      type: 'pie',
+      data: {
+        labels: ['Laki-laki (35.7%)', 'Perempuan (64.3%)'],
+        datasets: [{
+          data: [912, 1640],
+          backgroundColor: ['#3498db', '#e74c3c'],
+          borderWidth: 0
+        }]
+      },
+      options: {
+        ...chartOptions,
+        plugins: {
+          ...chartOptions.plugins,
+          title: {
+            display: true,
+            text: 'Gender Pengrajin',
+            font: {
+              family: 'Poppins',
+              size: 16,
+              weight: '600'
+            }
+          }
+        }
+      }
+    });
+
+     // Fungsi Search Nama Toko
+  document.getElementById('searchInput').addEventListener('keyup', function() {
+    let filter = this.value.toLowerCase();
+    let table = document.getElementById('tabelPengrajin');
+    let rows = table.querySelectorAll('tbody tr');
+    rows.forEach(row => {
+      let namaToko = row.cells[1].textContent.toLowerCase();
+      if (namaToko.includes(filter)) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  });
+    
+    // Artisan Income Chart
+    new Chart(document.getElementById('artisanIncomeChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Nilai Produksi', 'Bahan Baku', 'Pendapatan'],
+        datasets: [{
+          label: 'Dalam Juta Rupiah',
+          data: [3674.2, 102.892, 55],
+          backgroundColor: ['#2ecc71', '#f39c12', '#9b59b6'],
+          borderWidth: 0
+        }]
+      },
+      options: {
+        ...chartOptions,
+        scales: {
+          y: {
+            beginAtZero: true,
+            grid: {
+              color: '#f0f0f0'
+            }
+          }
+        },
+        plugins: {
+          ...chartOptions.plugins,
+          title: {
+            display: true,
+            text: 'Ekonomi Kerajinan (2024)',
+            font: {
+              family: 'Poppins',
+              size: 16,
+              weight: '600'
+            }
+          },
+          legend: {
+            display: false
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - Manajemen Berita</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2ecc71;
+      --primary-dark: #27ae60;
+      --secondary: #3498db;
+      --danger: #e74c3c;
+      --warning: #f39c12;
+      --gray: #6c757d;
+      --light-gray: #f8f9fa;
+      --white: #ffffff;
+      --sidebar-width: 250px;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --border-radius: 6px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f5f7fa;
+    }
+
+    /* Layout */
+    .app-container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: var(--sidebar-width);
+      background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      min-height: 100vh;
+      padding: 20px 0;
+      box-shadow: var(--shadow);
+    }
+
+    .sidebar-header {
+      text-align: center;
+      padding: 0 20px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .sidebar-header h2 {
+      font-weight: 700;
+      margin-bottom: 5px;
+      font-size: 1.3rem;
+    }
+
+    .sidebar-menu {
+      padding: 20px;
+    }
+
+    .sidebar-menu ul {
+      list-style: none;
+    }
+
+    .sidebar-menu li {
+      margin-bottom: 5px;
+    }
+
+    .sidebar-menu a {
+      display: flex;
+      align-items: center;
+      padding: 10px 15px;
+      color: var(--white);
+      text-decoration: none;
+      border-radius: var(--border-radius);
+      transition: all 0.3s ease;
+    }
+
+    .sidebar-menu a:hover,
+    .sidebar-menu a.active {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .sidebar-menu i {
+      width: 25px;
+      font-size: 1rem;
+      margin-right: 10px;
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      padding: 30px;
+    }
+
+    /* Header */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .page-title {
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+    /* Search and Add Button */
+    .search-add-container {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .search-box {
+      position: relative;
+      width: 300px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px 15px 10px 40px;
+      border: 1px solid #ddd;
+      border-radius: var(--border-radius);
+      outline: none;
+    }
+
+    .search-box i {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray);
+    }
+
+    .btn {
+      padding: 10px 15px;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+    }
+
+    .btn-danger {
+      background-color: var(--danger);
+      color: var(--white);
+    }
+
+    .btn-danger:hover {
+      background-color: #c0392b;
+    }
+
+    /* Blog List */
+    .blog-list {
+      background-color: var(--white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .blog-list-header {
+      display: grid;
+      grid-template-columns: 3fr 2fr 1fr;
+      padding: 15px 20px;
+      background-color: var(--light-gray);
+      font-weight: 600;
+      border-bottom: 1px solid #eee;
+    }
+
+    .blog-item {
+      display: grid;
+      grid-template-columns: 3fr 2fr 1fr;
+      padding: 15px 20px;
+      border-bottom: 1px solid #eee;
+      align-items: center;
+    }
+
+    .blog-item:last-child {
+      border-bottom: none;
+    }
+
+    .blog-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .empty-state {
+      padding: 50px 20px;
+      text-align: center;
+      color: var(--gray);
+    }
+
+    /* Add Blog Form */
+    .form-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: var(--white);
+      padding: 30px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px 15px;
+      border: 1px solid #ddd;
+      border-radius: var(--border-radius);
+      outline: none;
+      transition: border 0.3s ease;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .file-input {
+      display: none;
+    }
+
+    .file-label {
+      display: inline-block;
+      padding: 10px 15px;
+      background-color: var(--light-gray);
+      border: 1px dashed #ddd;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      width: 100%;
+      text-align: center;
+    }
+
+    .file-label:hover {
+      background-color: #e9ecef;
+    }
+
+    .file-name {
+      margin-top: 5px;
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    .select-control {
+      width: 100%;
+      padding: 10px 15px;
+      border: 1px solid #ddd;
+      border-radius: var(--border-radius);
+      outline: none;
+      background-color: var(--white);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .app-container {
+        flex-direction: column;
+      }
+      
+      .sidebar {
+        width: 100%;
+        min-height: auto;
+      }
+      
+      .main-content {
+        padding: 20px;
+      }
+      
+      .search-add-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .search-box {
+        width: 100%;
+      }
+      
+      .blog-list-header,
+      .blog-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      
+      .blog-actions {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h2>Admin Panel</h2>
+        <p>Manajemen Berita</p>
+      </div>
+      
+      <div class="sidebar-menu">
+        <ul>
+          <li><a href="#" class="active"><i class="fas fa-newspaper"></i> Berita</a></li>
+          <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Blog List View -->
+      <div id="blog-list-view">
+        <div class="page-header">
+          <h1 class="page-title">Manajemen Berita</h1>
+        </div>
+        
+        <div class="search-add-container">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Cari berita...">
+          </div>
+          <button class="btn btn-primary" id="add-blog-btn">
+            <i class="fas fa-plus"></i> Tambah Berita Baru
+          </button>
+        </div>
+        
+        <div class="blog-list">
+          <div class="blog-list-header">
+            <div>Judul Berita</div>
+            <div>Kategori</div>
+            <div>Aksi</div>
+          </div>
+          
+          <!-- Example blog items (would be dynamically generated in real app) -->
+          <div class="blog-item">
+            <div>Pameran Seni Budaya Nasional 2023</div>
+            <div>Seni Budaya</div>
+            <div class="blog-actions">
+              <button class="btn btn-danger btn-sm">
+                <i class="fas fa-trash"></i> Hapus
+              </button>
+            </div>
+          </div>
+          
+          <!-- Empty state (hidden when there are blogs) -->
+          <!-- <div class="empty-state">
+            <i class="fas fa-newspaper" style="font-size: 3rem; margin-bottom: 15px;"></i>
+            <h3>Tidak ada berita</h3>
+            <p>Mulai dengan menambahkan berita baru</p>
+          </div> -->
+        </div>
+      </div>
+      
+      <!-- Add Blog Form (hidden by default) -->
+      <div id="add-blog-form" style="display: none;">
+        <div class="page-header">
+          <h1 class="page-title">Tambah Berita Baru</h1>
+          <button class="btn" id="back-to-list">
+            <i class="fas fa-arrow-left"></i> Kembali
+          </button>
+        </div>
+        
+        <div class="form-container">
+          <div class="form-group">
+            <label for="blog-title">Judul</label>
+            <input type="text" id="blog-title" class="form-control" placeholder="Masukkan judul">
+          </div>
+          
+          <div class="form-group">
+            <label for="blog-content">Konten</label>
+            <textarea id="blog-content" class="form-control" placeholder="Tulis konten berita di sini"></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="blog-image">Gambar</label>
+            <input type="file" id="blog-image" class="file-input" accept="image/*">
+            <label for="blog-image" class="file-label">
+              <i class="fas fa-cloud-upload-alt"></i> Pilih Gambar
+            </label>
+            <div class="file-name" id="file-name">Belum ada file dipilih</div>
+          </div>
+          
+          <div class="form-group">
+            <label for="blog-category">Kategori</label>
+            <select id="blog-category" class="select-control">
+              <option value="seni-budaya">Seni Budaya</option>
+              <option value="workshop">Workshop</option>
+              <option value="pameran">Pameran</option>
+              <option value="lainnya">Lainnya</option>
+            </select>
+          </div>
+          
+          <button class="btn btn-primary" id="submit-blog">
+            <i class="fas fa-save"></i> Simpan Berita
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // DOM Elements
+      const blogListView = document.getElementById('blog-list-view');
+      const addBlogForm = document.getElementById('add-blog-form');
+      const addBlogBtn = document.getElementById('add-blog-btn');
+      const backToListBtn = document.getElementById('back-to-list');
+      const blogImageInput = document.getElementById('blog-image');
+      const fileNameDisplay = document.getElementById('file-name');
+      
+      // Toggle between list and form views
+      addBlogBtn.addEventListener('click', function() {
+        blogListView.style.display = 'none';
+        addBlogForm.style.display = 'block';
+      });
+      
+      backToListBtn.addEventListener('click', function() {
+        addBlogForm.style.display = 'none';
+        blogListView.style.display = 'block';
+      });
+      
+      // Display selected file name
+      blogImageInput.addEventListener('change', function() {
+        if (this.files.length > 0) {
+          fileNameDisplay.textContent = this.files[0].name;
+        } else {
+          fileNameDisplay.textContent = 'Belum ada file dipilih';
+        }
+      });
+      
+      // Simulate form submission
+      document.getElementById('submit-blog').addEventListener('click', function() {
+        const title = document.getElementById('blog-title').value;
+        const content = document.getElementById('blog-content').value;
+        const category = document.getElementById('blog-category').value;
+        
+        if (!title || !content) {
+          alert('Judul dan konten harus diisi!');
+          return;
+        }
+        
+        // In a real app, you would send this data to the server
+        alert(`Berita "${title}" berhasil ditambahkan!`);
+        
+        // Reset form and go back to list
+        document.getElementById('blog-title').value = '';
+        document.getElementById('blog-content').value = '';
+        document.getElementById('blog-image').value = '';
+        fileNameDisplay.textContent = 'Belum ada file dipilih';
+        
+        addBlogForm.style.display = 'none';
+        blogListView.style.display = 'block';
+      });
+      
+      // Simulate delete action
+      document.querySelectorAll('.btn-danger').forEach(btn => {
+        btn.addEventListener('click', function() {
+          if (confirm('Apakah Anda yakin ingin menghapus berita ini?')) {
+            // In a real app, you would send a delete request to the server
+            const blogItem = this.closest('.blog-item');
+            blogItem.remove();
+            alert('Berita berhasil dihapus!');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
